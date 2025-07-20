@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,LabelEncoder
 
 def get_iris_data_path():
     current_path = os.getcwd()
@@ -20,9 +20,11 @@ def load_path(data_path):
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
     Y = df.iloc[:,5:].values
+    y_label = LabelEncoder().fit_transform(Y)
+    return X_scaled,y_label
 
-    return X_scaled,Y
 
 def Get_Iris_data():
     data_path = get_iris_data_path()
     return load_path(data_path)
+
