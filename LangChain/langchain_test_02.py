@@ -63,6 +63,7 @@ if __name__ == "__main__":
         search_type="similarity",  # 相似度检索
         search_kwargs={"k": 4}     # 返回最相关的4个片段
     )
+    retriever.invoke("人工智能的历史发展是怎样的？")
 
     prompt_template = ("""
         你是一个问答机器人。
